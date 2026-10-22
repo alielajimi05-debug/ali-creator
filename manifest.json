@@ -1,0 +1,14 @@
+
+{
+  "name": "Ali Creator",
+  "short_name": "Ali Creator",
+  "description": "مساحة الإبداع وصناعة المحتوى",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "lang": "ar",
+  "dir": "rtl"
+}
+
