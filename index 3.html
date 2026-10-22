@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101512">
+<title>Ali Creator</title>
+<style>
+:root{--bg:#0d110f;--panel:#171d19;--panel2:#202821;--green:#8be28b;--green2:#39b85a;--text:#f2f7f2;--muted:#a7b3a8;--line:#2c382f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.app{max-width:1180px;margin:auto;display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{background:#111713;border-left:1px solid var(--line);padding:24px 16px;position:sticky;top:0;height:100vh}
+.logo{font-size:21px;font-weight:850;letter-spacing:-.5px;margin:4px 8px 5px}.logo span{color:var(--green)}.sublogo{color:var(--muted);font-size:12px;margin:0 8px 28px}
+.nav{display:grid;gap:7px}.nav button{background:transparent;color:var(--muted);text-align:right;padding:12px 13px;border-radius:12px;display:flex;gap:10px;align-items:center}.nav button.active,.nav button:hover{background:#223127;color:var(--green)}.side-note{position:absolute;bottom:20px;right:16px;left:16px;padding:14px;border-radius:14px;background:#1b2a1e;color:#b9d9bc;font-size:12px;line-height:1.7}
+main{padding:28px;min-width:0}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}.eyebrow{color:var(--green);font-size:12px;font-weight:700}.topbar h1{font-size:26px;margin:5px 0}.topbar p{color:var(--muted);margin:0;font-size:13px}.avatar{background:linear-gradient(135deg,#b7f4b1,#3a9f50);color:#102014;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:900}
+.page{display:none}.page.active{display:block}.hero{background:linear-gradient(120deg,#203b27,#17251b 62%,#1a211c);border:1px solid #31543a;border-radius:20px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;overflow:hidden}.hero h2{font-size:23px;margin:0 0 8px}.hero p{margin:0;color:#c4d6c5;line-height:1.7;font-size:13px;max-width:530px}.hero .spark{font-size:50px;opacity:.9}.btn{background:var(--green);color:#102014;padding:10px 15px;border-radius:11px;font-weight:800;margin-top:16px}.btn.secondary{background:#2a372d;color:#dff5df;border:1px solid #3c5140}.btn.small{padding:7px 10px;font-size:12px;margin:0}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:18px}.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px}.stat-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.stat-icon{font-size:19px}.stat strong{display:block;font-size:25px;margin:12px 0 4px}.positive{font-size:11px;color:var(--green)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:24px 0 12px}.section-head h3{margin:0;font-size:17px}.section-head span{color:var(--muted);font-size:12px}.two{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}.card h3{font-size:15px;margin:0 0 14px}.platforms{display:grid;gap:10px}.platform{display:flex;align-items:center;gap:11px;padding:12px;background:#111713;border:1px solid var(--line);border-radius:12px}.picon{width:36px;height:36px;display:grid;place-items:center;border-radius:10px;background:#29382d;font-weight:800}.platform .pname{font-weight:700;font-size:13px}.platform .psub{color:var(--muted);font-size:11px;margin-top:3px}.platform .count{margin-right:auto;text-align:left;font-weight:800;font-size:14px}.mini-chart{height:145px;display:flex;align-items:end;gap:9px;padding:15px 5px 0;border-bottom:1px solid var(--line)}.bar{flex:1;min-width:8px;background:linear-gradient(180deg,var(--green),#328d4b);border-radius:7px 7px 2px 2px;position:relative}.chart-labels{display:flex;justify-content:space-around;color:var(--muted);font-size:10px;margin-top:8px}.ideas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.idea{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:15px}.idea .emoji{font-size:25px}.idea h4{margin:10px 0 6px;font-size:14px}.idea p{color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 13px}.field{display:grid;gap:7px;margin-bottom:13px}.field label{font-size:12px;color:#c5d1c6}.field input,.field select,.field textarea{width:100%;background:#0f1511;color:var(--text);border:1px solid #354239;border-radius:10px;padding:11px;outline:none}.field textarea{min-height:100px;resize:vertical}.rowfields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.output{background:#101612;border:1px dashed #405746;padding:14px;border-radius:12px;white-space:pre-wrap;line-height:1.9;font-size:14px;margin-top:13px}.empty{color:var(--muted);font-size:13px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:480px}th,td{text-align:right;padding:12px 8px;border-bottom:1px solid var(--line);font-size:12px}th{color:var(--muted);font-weight:600}.tag{background:#203a26;color:var(--green);border-radius:7px;padding:5px 8px;font-size:11px}.toast{position:fixed;bottom:20px;left:20px;background:#d9f8d9;color:#142117;padding:12px 17px;border-radius:12px;display:none;font-size:13px;font-weight:700;box-shadow:0 8px 30px #0006}
+footer{margin-top:24px;color:#748276;font-size:11px;text-align:center;line-height:1.8}
+@media(max-width:800px){.app{display:block}.sidebar{height:auto;position:sticky;z-index:10;top:0;padding:11px 12px;border-left:0;border-bottom:1px solid var(--line)}.logo{font-size:18px;margin:0}.sublogo{display:none}.nav{display:flex;overflow-x:auto;margin-top:10px;gap:5px}.nav button{white-space:nowrap;padding:9px 11px;font-size:12px}.side-note{display:none}main{padding:17px 13px}.topbar h1{font-size:22px}.hero{padding:18px}.hero h2{font-size:20px}.hero .spark{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{padding:13px}.stat strong{font-size:22px}.two{grid-template-columns:1fr}.ideas{grid-template-columns:1fr}.rowfields{grid-template-columns:1fr}.section-head{margin-top:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">ALI <span>CREATOR</span> ✦</div><div class="sublogo">استوديو صانع المحتوى</div>
+  <nav class="nav">
+    <button class="active" data-page="home">⌂ الرئيسية</button>
+    <button data-page="ideas">✦ أفكار الفيديوهات</button>
+    <button data-page="script">✎ مولّد الحوارات</button>
+    <button data-page="stats">▥ إحصائياتي</button>
+    <button data-page="planner">▦ مخطط المحتوى</button>
+    <button data-page="calculator">د.م حاسبة الأرباح</button>
+  </nav>
+  <div class="side-note">💡 <b>فكرة اليوم</b><br>الاستمرارية أهم من انتظار الفيديو المثالي. جرّب فكرة، قِس النتيجة، وطوّر المحتوى.</div>
+</aside>
+<main>
+  <header class="topbar"><div><div class="eyebrow">مساحة الإبداع ديالك</div><h1 id="pageTitle">مرحبا بك فـ Ali Creator 👋</h1><p id="pageSub">كل الأدوات اللي كتحتاج لصناعة محتوى أحسن، فبلاصة وحدة.</p></div><div class="avatar">AC</div></header>
+  <section class="page active" id="home">
+    <div class="hero"><div><div class="eyebrow">CREATOR STUDIO · نسخة تجريبية</div><h2>الفكرة ديالك، الفيديو ديالك، والبصمة ديالك.</h2><p>نظّم المحتوى، حضّر الحوارات، وتابع تطور قنواتك من لوحة واحدة. دخل الإحصائيات ديالك باش تبقى الأرقام ديما تحت السيطرة.</p><button class="btn" onclick="showPage('ideas')">✨ اكتشف أفكار الفيديوهات</button></div><div class="spark">🎬</div></div>
+    <div class="grid">
+      <div class="stat"><div class="stat-top"><span>مشتركو YouTube</span><span class="stat-icon">▶️</span></div><strong id="homeYT">0</strong><div class="positive">من الإحصائيات ديالك</div></div>
+      <div class="stat"><div class="stat-top"><span>متابعو Facebook</span><span class="stat-icon">f</span></div><strong id="homeFB">0</strong><div class="positive">من الإحصائيات ديالك</div></div>
+      <div class="stat"><div class="stat-top"><span>فيديوهات مسجلة</span><span class="stat-icon">🎞️</span></div><strong id="homeVideos">0</strong><div class="positive">فالمخطط ديال المحتوى</div></div>
+      <div class="stat"><div class="stat-top"><span>مجموع المشاهدات</span><span class="stat-icon">◉</span></div><strong id="homeViews">0</strong><div class="positive">إدخال يدوي</div></div>
+    </div>
+    <div class="two">
+      <div class="card"><h3>📈 تطور المشاهدات (مثال توضيحي)</h3><div class="mini-chart" aria-label="رسم توضيحي"><div class="bar" style="height:25%"></div><div class="bar" style="height:42%"></div><div class="bar" style="height:33%"></div><div class="bar" style="height:58%"></div><div class="bar" style="height:49%"></div><div class="bar" style="height:76%"></div><div class="bar" style="height:92%"></div></div><div class="chart-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7 أيام</span></div><p class="empty">الرسم أعلاه توضيحي، ماشي بيانات حقيقية من حساباتك.</p></div>
+      <div class="card"><h3>🌐 المنصات ديالك</h3><div class="platforms">
+        <div class="platform"><div class="picon">▶</div><div><div class="pname">YouTube</div><div class="psub">سجّل المشتركين والمشاهدات</div></div><div class="count" id="platformYT">0</div></div>
+        <div class="platform"><div class="picon">f</div><div><div class="pname">Facebook</div><div class="psub">تابع نمو الصفحة</div></div><div class="count" id="platformFB">0</div></div>
+        <div class="platform"><div class="picon">♪</div><div><div class="pname">TikTok</div><div class="psub">نظّم الأرقام ديالك</div></div><div class="count" id="platformTT">0</div></div>
+      </div></div>
+    </div>
+    <footer>Ali Creator Demo · الأرقام كتتحفظ على هاد الجهاز فقط · ما كاين حتى اتصال مباشر بمنصات التواصل.</footer>
+  </section>
+  <section class="page" id="ideas">
+    <div class="section-head"><h3>✨ أفكار فيديوهات جاهزة للإلهام</h3><span>اختار فكرة وطورها بطريقتك</span></div>
+    <div class="ideas" id="ideaList"></div>
+    <div class="card" style="margin-top:15px"><h3>➕ زِد فكرة ديالك</h3><div class="field"><label>عنوان الفكرة</label><input id="newIdea" placeholder="مثلاً: قردوش باغي يسلف التليفون..."></div><button class="btn" onclick="addIdea()">حفظ الفكرة</button></div>
+  </section>
+  <section class="page" id="script">
+    <div class="card"><h3>✎ مولّد الحوارات بالدارجة المغربية</h3><p class="empty">نموذج تجريبي بقوالب جاهزة قابلة للتعديل، ما كيحتاجش API.</p>
+      <div class="rowfields"><div class="field"><label>نوع الفيديو</label><select id="scriptType"><option value="comedy">كوميديا مغربية</option><option value="motivation">تحفيز</option><option value="tips">نصيحة لصناع المحتوى</option></select></div><div class="field"><label>مدة الفيديو</label><select id="scriptDuration"><option>10 ثواني</option><option>20 ثانية</option><option>30 ثانية</option><option>60 ثانية</option></select></div></div>
+      <div class="field"><label>الشخصيات أو الموضوع</label><input id="scriptTopic" value="عالي وقردوش" placeholder="مثلاً عالي وقردوش"></div>
+      <button class="btn" onclick="generateScript()">🎬 ولّد الحوار</button><div id="scriptOutput" class="output" style="display:none"></div><button class="btn secondary" id="copyScript" style="display:none" onclick="copyText('scriptOutput')">نسخ الحوار</button>
+    </div>
+  </section>
+  <section class="page" id="stats">
+    <div class="card"><h3>▥ سجّل إحصائيات القنوات ديالك</h3><p class="empty">دخل الأرقام اللي كتشوفها فالتطبيقات الرسمية. هاد النموذج ما كيتصلش بالحسابات ديالك.</p>
+      <div class="rowfields"><div class="field"><label>عدد مشتركي YouTube</label><input type="number" min="0" id="ytInput" placeholder="مثلاً 6000"></div><div class="field"><label>عدد متابعي Facebook</label><input type="number" min="0" id="fbInput" placeholder="مثلاً 4000"></div><div class="field"><label>عدد متابعي TikTok</label><input type="number" min="0" id="ttInput" placeholder="مثلاً 3000"></div><div class="field"><label>مجموع المشاهدات</label><input type="number" min="0" id="viewsInput" placeholder="مثلاً 50000"></div></div>
+      <button class="btn" onclick="saveStats()">💾 حفظ الإحصائيات</button><button class="btn secondary" onclick="clearStats()">مسح الإحصائيات</button><p id="statsSaved" class="empty"></p>
+    </div>
+    <div class="card" style="margin-top:14px"><h3>📋 ملخص الأرقام المسجلة</h3><div class="grid" style="margin:0"><div class="stat"><div class="stat-top">YouTube</div><strong id="sumYT">0</strong></div><div class="stat"><div class="stat-top">Facebook</div><strong id="sumFB">0</strong></div><div class="stat"><div class="stat-top">TikTok</div><strong id="sumTT">0</strong></div><div class="stat"><div class="stat-top">المشاهدات</div><strong id="sumViews">0</strong></div></div></div>
+  </section>
+  <section class="page" id="planner">
+    <div class="card"><h3>▦ مخطط المحتوى</h3><div class="rowfields"><div class="field"><label>عنوان الفيديو</label><input id="videoTitle" placeholder="عنوان الفيديو"></div><div class="field"><label>المنصة</label><select id="videoPlatform"><option>Facebook</option><option>YouTube</option><option>TikTok</option></select></div><div class="field"><label>موعد النشر</label><input id="videoDate" type="date"></div><div class="field"><label>الحالة</label><select id="videoStatus"><option>فكرة جديدة</option><option>قيد التحضير</option><option>منشور</option></select></div></div><button class="btn" onclick="addVideo()">+ إضافة للمخطط</button></div>
+    <div class="card" style="margin-top:14px"><div class="section-head" style="margin-top:0"><h3>الفيديوهات ديالي</h3><span id="videoCount">0 فيديو</span></div><div class="tablewrap"><table><thead><tr><th>العنوان</th><th>المنصة</th><th>الموعد</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="videoTable"></tbody></table></div><p id="noVideos" class="empty">مازال ما زدتي حتى فيديو. زِد أول فكرة من الفوق.</p></div>
+  </section>
+  <section class="page" id="calculator">
+    <div class="card"><h3>د.م حاسبة الأرباح التقديرية</h3><p class="empty">حساب افتراضي فقط، لأن العائد الحقيقي كيختلف حسب المنصة والبلد ونوع المحتوى والأهلية لتحقيق الربح.</p>
+      <div class="rowfields"><div class="field"><label>عدد المشاهدات</label><input type="number" id="calcViews" min="0" value="100000"></div><div class="field"><label>العائد الافتراضي لكل 1000 مشاهدة (درهم)</label><input type="number" id="calcRate" min="0" step="0.01" value="1"></div></div>
+      <button class="btn" onclick="calculate()">احسب التقدير</button><div class="output" id="calcOutput">التقدير: 100 درهم (مثال افتراضي)</div>
+    </div>
+  </section>
+</main></div><div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem('aliCreator_'+k))??d}catch{return d}};
+const put=(k,v)=>localStorage.setItem('aliCreator_'+k,JSON.stringify(v));
+function toast(msg){$('toast').textContent=msg;$('toast').style.display='block';setTimeout(()=> $('toast').style.display='none',2200)}
+const pageInfo={home:['مرحبا بك فـ Ali Creator 👋','كل الأدوات اللي كتحتاج لصناعة محتوى أحسن، فبلاصة وحدة.'],ideas:['أفكار الفيديوهات ✨','خلي الإلهام ديما حاضر، وسجّل الأفكار اللي عجباتك.'],script:['استوديو الحوارات 🎬','حضّر نصوص قصيرة وسهلة للتصوير.'],stats:['إحصائيات القنوات 📊','دخل الأرقام يدوياً وتابع التطور ديالك.'],planner:['مخطط المحتوى 🗓️','نظّم الفيديوهات من الفكرة حتى النشر.'],calculator:['حاسبة الأرباح 💰','جرّب سيناريوهات مختلفة بتقديرات افتراضية.']};
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));$('pageTitle').textContent=pageInfo[id][0];$('pageSub').textContent=pageInfo[id][1];window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+let ideas=get('ideas',[
+{emoji:'🐒',title:'قردوش والكريدي',desc:'قردوش باغي ياخذ حاجة بالكريدي، وعالي كيكشف ليه أن الكناش عامر.'},
+{emoji:'🎥',title:'أول نهار صانع محتوى',desc:'عالي كيشرح للكاميرا بثقة، وقردوش كيبدا يعطيه نصائح ما عندها حتى علاقة.'},
+{emoji:'🍵',title:'أتاي الضياف',desc:'قردوش كيسمع أن الضياف جايين وكيبدا يخبّي الحلوى باش تبقى ليه.'},
+{emoji:'📱',title:'التليفون الذكي',desc:'قردوش كيسول عالي على تطبيق كيزيد المتابعين فدقيقة، وعالي كيعطيه الحقيقة.'},
+{emoji:'🛒',title:'مهمة السوق',desc:'عالي يصيفط قردوش يجيب حاجة وحدة، ويرجع بقصة طويلة وحوايج ما طلبهم حد.'},
+{emoji:'🎙️',title:'طلب المتابعة',desc:'عالي كيبغي يطلب من الناس يتابعوه، وقردوش كيقترح عليه طريقة مضحكة.'}
+]);
+function renderIdeas(){$('ideaList').innerHTML=ideas.map((x,i)=>`<article class="idea"><div class="emoji">${esc(x.emoji||'💡')}</div><h4>${esc(x.title)}</h4><p>${esc(x.desc)}</p><button class="btn secondary small" onclick="useIdea(${i})">حوّلها لحوار</button> <button class="btn secondary small" onclick="deleteIdea(${i})">حذف</button></article>`).join('')}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addIdea(){let v=$('newIdea').value.trim();if(!v)return toast('كتب عنوان الفكرة أولاً');ideas.unshift({emoji:'💡',title:v,desc:'فكرة جديدة ديالك، زيد طوّرها وصوّرها بالطريقة ديالك.'});put('ideas',ideas);$('newIdea').value='';renderIdeas();toast('تحفظات الفكرة')}
+function deleteIdea(i){ideas.splice(i,1);put('ideas',ideas);renderIdeas();toast('تم حذف الفكرة')}
+function useIdea(i){$('scriptTopic').value=ideas[i].title;showPage('script');generateScript()}
+function generateScript(){let type=$('scriptType').value,topic=$('scriptTopic').value.trim()||'عالي وقردوش',dur=$('scriptDuration').value;let text='';
+if(type==='comedy')text=`عالي: آ قردوش، ${topic}؟\nقردوش: آ عالي، عندي ليك واحد الفكرة خطيرة!\nعالي: قول، غير ما تكونش شي مصيبة جديدة.\nقردوش: لا لا، هاد المرة غادي نولّيو مشهورين!\nعالي: إيوا بدا، والكاميرا شاعلة! 😂`;
+if(type==='motivation')text=`عالي: الطريق ماشي ديما ساهل، ولكن كل نهار تقدر تدير خطوة.\nقردوش: وحتى إلا غلطنا؟\nعالي: نتعلّمو ونعاودو، المهم ما نحبسوش.\nقردوش: إيوا صوّر، راه هادي أول خطوة! 💪`;
+if(type==='tips')text=`عالي: نصيحة لأي صانع محتوى: ما تبداش الفيديو بمقدمة طويلة.\nقردوش: آش ندير إذن؟\nعالي: دخل مباشرة للفكرة، وخلي أول ثانيتين يشدّو الانتباه.\nقردوش: يعني حتى السلام نقصّروه؟ 😂`;
+if(dur==='20 ثانية')text+='\\n[زيد مثال قصير أو لقطة تفاعلية باش توصل لـ20 ثانية]';if(dur==='30 ثانية')text+='\\n[زيد مثال، لقطة ثانية، وخاتمة واضحة]';if(dur==='60 ثانية')text+='\\n[زيد شرحاً ومثالين وتفاعلاً مع الجمهور]';
+$('scriptOutput').textContent=text;$('scriptOutput').style.display='block';$('copyScript').style.display='inline-block'}
+async function copyText(id){try{await navigator.clipboard.writeText($(id).textContent);toast('تنسخ النص')}catch{toast('حدّد النص ونسخو يدوياً')}}
+function readStats(){return get('stats',{yt:0,fb:0,tt:0,views:0})}
+function saveStats(){let s={yt:num('ytInput'),fb:num('fbInput'),tt:num('ttInput'),views:num('viewsInput')};put('stats',s);renderStats();$('statsSaved').textContent='تحفظات الإحصائيات على هاد الجهاز.';toast('تحفظات الإحصائيات')}
+function num(id){return Math.max(0,Number($(id).value)||0)}
+function renderStats(){let s=readStats();[['yt','YT'],['fb','FB'],['tt','TT'],['views','Views']].forEach(([k,suf])=>{let val=Number(s[k]||0).toLocaleString('fr-MA');if($('sum'+suf))$('sum'+suf).textContent=val;if($('home'+suf))$('home'+suf).textContent=val;if($('platform'+suf))$('platform'+suf).textContent=val;let input={yt:'ytInput',fb:'fbInput',tt:'ttInput',views:'viewsInput'}[k];if($(input)&&document.activeElement!==$(input))$(input).value=s[k]||0})}
+function clearStats(){put('stats',{yt:0,fb:0,tt:0,views:0});renderStats();toast('تم مسح الإحصائيات')}
+let videos=get('videos',[]);
+function addVideo(){let title=$('videoTitle').value.trim();if(!title)return toast('كتب عنوان الفيديو');videos.unshift({id:Date.now(),title,platform:$('videoPlatform').value,date:$('videoDate').value||'—',status:$('videoStatus').value});put('videos',videos);$('videoTitle').value='';renderVideos();toast('تزاد الفيديو للمخطط')}
+function deleteVideo(id){videos=videos.filter(v=>v.id!==id);put('videos',videos);renderVideos();toast('تحذف الفيديو')}
+function renderVideos(){$('videoTable').innerHTML=videos.map(v=>`<tr><td>${esc(v.title)}</td><td>${esc(v.platform)}</td><td>${esc(v.date)}</td><td><span class="tag">${esc(v.status)}</span></td><td><button class="btn secondary small" onclick="deleteVideo(${v.id})">حذف</button></td></tr>`).join('');$('videoCount').textContent=videos.length+' فيديو';$('noVideos').style.display=videos.length?'none':'block';$('homeVideos').textContent=videos.length.toLocaleString('fr-MA')}
+function calculate(){let views=num('calcViews'),rate=num('calcRate');$('calcOutput').textContent='التقدير الافتراضي: '+(views/1000*rate).toLocaleString('fr-MA',{maximumFractionDigits:2})+' درهم مغربي\\nهاد الرقم مثال حسابي فقط، وماشي وعد بأرباح حقيقية.'}
+renderIdeas();renderStats();renderVideos();calculate();
+</script>
+</body>
+</html>
