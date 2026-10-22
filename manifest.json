@@ -1,4 +1,5 @@
 
+
 {
   "name": "Ali Creator",
   "short_name": "Ali Creator",
@@ -9,6 +10,13 @@
   "background_color": "#111827",
   "theme_color": "#111827",
   "lang": "ar",
-  "dir": "rtl"
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
-
